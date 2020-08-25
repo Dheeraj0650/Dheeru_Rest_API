@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/fontawesome.css">
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function get_App_Id(){
+      alert("Your API key is <%= app_id %>");
+    }
+  </script>
+  <title></title>
+</head>
+
+<body>
+  <section>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #91d18b;box-shadow: 10px 10px 10px red;margin-bottom:2rem;">
+        <a class="navbar-brand" href="/" style="color:#1d1b38;font-family: 'Oxygen', sans-serif;font-size:2rem;"><i class="fas fa-lightbulb"></i>&nbspDheeru's API</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav ml-auto" style="align-items:center">
+            <% if(present){ %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user fa-2x" style="margin-left:1rem;"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <button class="btn btn-outline-primary dropdown-item" style="font-family: 'Reem Kufi', sans-serif;font-size:1.1rem" onclick="get_App_Id()">API key</button>
+                <a class="dropdown-item" href="/logout">Logout</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"></a>
+              </div>
+            </li>
+            <%} else {%>
+            <li class="nav-item">
+              <a class="nav-link" href="/"><button class="btn btn-outline-primary" style="font-family: 'Reem Kufi', sans-serif;font-size:1.1rem">Signup/Login</button></a>
+            </li>
+            <% } %>
+            <li class="nav-item ">
+              <a class="nav-link" href="/documentation"><button class="btn btn-outline-primary" style="font-family: 'Reem Kufi', sans-serif;font-size:1.1rem">Documentation</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/"><button class="btn btn-outline-primary" style="font-family: 'Reem Kufi', sans-serif;font-size:1.1rem">Contact</button></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="card text-center">
+          <div class="card-header">
+            Details
+          </div>
+          <div class="card-body">
+            <div class="card-body">
+              <h5 class="card-title">http://localhost:9000/UserDetails/{API_key}/{query}</h5>
+              <p class="card-text"><b>Eg-1:-</b> url = http://localhost:9000/UserDetails/{API_key}/{full_name}</p>
+              <p class="card-text"><b>Eg-2:-</b> url = http://localhost:9000/Skills/{API_key}/{first_name}</p>
+              <p class="card-text"><b>Eg-2:-</b> url = http://localhost:9000/Skills/{API_key}/{gmail}</p>
+              <p class="card-text"><b>Eg-2:-</b> url = http://localhost:9000/Skills/{API_key}/{linkedin}</p>
+              <p class="card-text"><b>Eg-2:-</b> url = http://localhost:9000/Skills/{API_key}/{all}</p>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+        <div class="card text-center" style="margin-top:2rem;">
+          <div class="card-header">
+            Summary
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">http://localhost:9000/Summary/{API_key}</h5>
+            <p class="card-text"><b>Eg-1:-</b> url = http://localhost:9000/Summary/{API_key}/{all} </p>
+
+          </div>
+          <div class="card-footer text-muted">
+            <h6 class="card-title">NOTE => To get individual elements in summary split using "#" separator <a href="https://www.w3schools.com/jsref/jsref_split.asp">View</a></h6>
+          </div>
+        </div>
+        <div class="card text-center" style="margin-top:2rem;">
+          <div class="card-header">
+            Education
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">http://localhost:9000/Education/{API_key}/{education_level}</h5>
+            <p class="card-text"><b>Eg-1:-</b> education_level = Intermediate <br> url = http://localhost:9000/{API_key}/Education/{Intermediate}</p>
+            <p class="card-text"><b>Eg-1:-</b> education_level = B.Tech <br> url = http://localhost:9000/{API_key}/Education/{B.Tech}</p>
+            <p class="card-text"><b>Eg-1:-</b> education_level = all <br> url = http://localhost:9000/{API_key}/Education/{all}</p>
+
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+        <div class="card text-center" style="margin-top:2rem;">
+          <div class="card-header">
+            Skills
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">http://localhost:9000/Skills/{API_key}/{skill_name}</h5>
+            <p class="card-text"><b>Eg-1:-</b> To get level of perfection for particular skill <br> skill_name = python <br> url = http://localhost:9000/Skills/{API_key}/{python}</p>
+            <p class="card-text"><b>Eg-2:-</b> To get level of perfection for all the skills <br> url = http://localhost:9000/Skills/{API_key}/{all}</p>
+
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+        <div class="card text-center" style="margin-top:2rem;">
+          <div class="card-header">
+            Projects
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">http://localhost:9000/Projects/{API_key}/{all}</h5>
+            <p class="card-text"><b>Eg-1:-</b> url = http://localhost:9000/Projects/{API_key}/{all}</p>
+          </div>
+          <div class="card-footer text-muted">
+            <h6 class="card-title">NOTE => To get individual elements in summary split using "#" separator <a href="https://www.w3schools.com/jsref/jsref_split.asp" target="
+          ">View</a></h6>
+          </div>
+        </div>
+        <div class="card text-center" style="margin-top:2rem;">
+          <div class="card-header">
+            Certificates
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">http://localhost:9000/Certificates/{API_key}/{all}</h5>
+            <p class="card-text"><b>Eg-1:-</b> url = http://localhost:9000/Certificates/{API_key}/{all}</p>
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>
